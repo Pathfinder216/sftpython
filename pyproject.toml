@@ -19,6 +19,7 @@ pytest = "^7.3.1"
 black = "^23.3.0"
 mypy = "^1.2.0"
 isort = "^5.11.5"
+pylint = "^2.13.9"
 
 [tool.mypy]
 disallow_untyped_defs = true
@@ -31,6 +32,9 @@ allow_redefinition = true
 
 [tool.isort]
 profile = "black"
+
+[tool.pylint.messages_control]
+max-line-length = 88
 
 [build-system]
 requires = ["poetry-core"]

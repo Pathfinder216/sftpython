@@ -1,5 +1,5 @@
 from sftpython import Connection
 
 
-def test_initialize():
+def test_initialize() -> None:
     Connection()

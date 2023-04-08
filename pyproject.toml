@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sftpython"
+version = "0.1.0"
+description = "A drop-in replacement for and improvement upon pysftp."
+authors = ["Ben Green <benno.green@gmail.com>"]
+readme = "README.md"
+license = "BSD"
+repository = "https://github.com/Pathfinder216/sftpython"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

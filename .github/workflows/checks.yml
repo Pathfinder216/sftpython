@@ -1,4 +1,4 @@
-name: Tests
+name: Checks
 on:
   push:
     branches:
@@ -42,12 +42,5 @@ jobs:
       - name: Install Dependencies
         run: poetry install
 
-      - name: Run Linter Checks
-        run: |
-          poetry run mypy sftpython tests
-          poetry run pylint sftpython tests
-          poetry run black --check sftpython tests
-          poetry run isort --check sftpython tests
-
-      - name: Run Automated Tests
-        run: poetry run pytest tests
+      - name: Run Checks
+        run: make check

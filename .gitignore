@@ -1,1 +1,4 @@
 __pycache__/
+_build/
+docs/src/
+dist/

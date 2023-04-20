@@ -1,0 +1,35 @@
+name: Publish
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish_pypi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Python Setup
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Poetry
+        run: |
+          pip install poetry==1.4.2
+          poetry config virtualenvs.in-project true
+
+      - name: Cache Virtual Environment
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: ${{ runner.os }}-python${{ matrix.python }}-${{ hashFiles('poetry.lock') }}
+
+      - name: Install Dependencies
+        run: poetry install
+
+      - name: Publish to PyPI
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+          poetry publish --build

@@ -29,7 +29,7 @@ test: ## Run the automated tests
 .PHONY: lint
 lint: ## Run the code linters to check code quality
 	@echo "mypy:"
-	@poetry run mypy $(lint_targets)
+	@poetry run mypy --non-interactive $(lint_targets)
 	@echo ""
 	@echo "pylint:"
 	@poetry run pylint $(lint_targets)
